@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(/C:\\Users\\hyunwooLNC\\Workspace\\mybatis-exam-1\\src\\main\\java\\kr\\co\\ldk\\mapper/**)",
+      "Read(/C:\\Users\\hyunwooLNC\\Workspace\\mybatis-exam-1\\src\\main\\resources\\mapper/**)",
+      "Read(/C:\\Users\\hyunwooLNC\\Workspace\\mybatis-exam-1\\src\\main\\resources/**)",
+      "Read(/C:\\Users\\hyunwooLNC\\Workspace\\mybatis-exam-1/**)",
+      "Bash(.gradlew clean build)",
+      "Bash(./gradlew:*)",
+      "Bash(java:*)",
+      "Read(/C:\\Users\\hyunwooLNC\\Workspace\\mybatis-exam-1\\src\\main\\java\\kr\\co\\ldk\\domain/**)",
+      "Read(/C:\\Users\\hyunwooLNC\\Workspace\\mybatis-exam-1\\src\\main\\java\\kr\\co\\ldk\\dto/**)",
+      "Read(/C:\\Users\\hyunwooLNC\\Workspace\\mybatis-exam-1\\src\\main\\java\\kr\\co\\ldk/**)",
+      "Read(/C:\\Users\\hyunwooLNC\\Workspace\\mybatis-exam-1\\src\\main\\resources\\templates\\sido/**)",
+      "Read(/C:\\Users\\hyunwooLNC\\Workspace\\mybatis-exam-1/**)",
+      "Bash(git init:*)",
+      "Bash(git config:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

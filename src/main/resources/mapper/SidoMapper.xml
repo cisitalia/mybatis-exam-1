@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.ldk.mapper.SidoMapper">
+
+    <select id="findAll" resultType="kr.co.ldk.domain.Sido">
+        SELECT seq, sido, gugun
+        FROM ldk_common.sido
+        ORDER BY seq DESC
+    </select>
+
+    <select id="findPage" parameterType="kr.co.ldk.dto.SidoPageRequest" resultType="kr.co.ldk.domain.Sido">
+        SELECT seq, sido, gugun
+        FROM ldk_common.sido
+        <where>
+            <if test="searchKeyword != null and searchKeyword != ''">
+                AND (sido LIKE CONCAT('%', #{searchKeyword}, '%') 
+                OR gugun LIKE CONCAT('%', #{searchKeyword}, '%'))
+            </if>
+        </where>
+        ORDER BY seq DESC
+        LIMIT #{size} OFFSET #{offset}
+    </select>
+
+    <select id="countTotal" parameterType="java.lang.String" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM ldk_common.sido
+        <where>
+            <if test="searchKeyword != null and searchKeyword != ''">
+                AND (sido LIKE CONCAT('%', #{searchKeyword}, '%') 
+                OR gugun LIKE CONCAT('%', #{searchKeyword}, '%'))
+            </if>
+        </where>
+    </select>
+
+    <select id="findById" parameterType="java.lang.Integer" resultType="kr.co.ldk.domain.Sido">
+        SELECT seq, sido, gugun
+        FROM ldk_common.sido
+        WHERE seq = #{seq}
+    </select>
+
+    <insert id="insert" parameterType="kr.co.ldk.domain.Sido" useGeneratedKeys="true" keyProperty="seq">
+        INSERT INTO ldk_common.sido (sido, gugun)
+        VALUES (#{sido}, #{gugun})
+    </insert>
+
+    <update id="update" parameterType="kr.co.ldk.domain.Sido">
+        UPDATE ldk_common.sido
+        SET sido = #{sido}, gugun = #{gugun}
+        WHERE seq = #{seq}
+    </update>
+
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        DELETE FROM ldk_common.sido
+        WHERE seq = #{seq}
+    </delete>
+
+</mapper>
